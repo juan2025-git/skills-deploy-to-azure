@@ -1,0 +1,11 @@
+name: Stage the app
+
+on:
+  pull_request:
+    types: [labeled]
+
+jobs:
+  build:
+    # solo corre si el PR tiene la etiqueta "stage"
+    if: contains(github.event.pull_request.labels.*.name, 'stage')
+    runs-on: ubuntu-latest
